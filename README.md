@@ -33,6 +33,7 @@
 - Bonus points for adding a docker-compose file to run the app.
 - Bonus points for adding a CI/CD pipeline to run the tests and deploy the app.
 - Bonus points for adding any new functionality you think would be useful. This should be in separate commits with a clear description of what you did.
+- All bonus points are optional
 
 ## Screenshot
 
