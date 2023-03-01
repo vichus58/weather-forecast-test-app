@@ -5,7 +5,7 @@
     <!-- TODO -->
     <div class="container">
       <div class="alert alert-danger" role="alert" v-if="errorMsg.error">
-        {{ errorMsg.errorI18NMessage }}
+        {{ errorMsg.errorI18NMessage || 'Unknown error occured' }}
       </div>
       <div v-else >
         <template v-for="data, index in weatherReport.current_weather" :key="index">
