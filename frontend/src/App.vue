@@ -4,7 +4,13 @@
     <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"
+  />
 </template>
+
 
 <style>
 #app {
