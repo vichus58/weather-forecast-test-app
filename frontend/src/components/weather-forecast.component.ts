@@ -1,15 +1,20 @@
 import WeatherService from '@/services/weather-service.service';
 import { Options, Vue } from 'vue-class-component';
 import { Inject } from 'vue-property-decorator';
-import { mapState } from 'vuex';
+import { mapGetters, mapState, useStore } from 'vuex';
 
 @Options({
   props: {
   },
-  computed: mapState([
+  computed: {
+    ...mapGetters({
+      weatherReport: 'getWeatherResult'
+    }),
+    ...mapState([
     // map this.count to store.state.count
     'selectedPlace'
-  ]),
+    ])
+  },
   watch: {
     selectedPlace: {
       handler(val) {
@@ -23,6 +28,9 @@ export default class WeatherForecast extends Vue {
   @Inject('weatherService')
   public weatherService!: WeatherService;
 
+  store = useStore()
+
+  errorMsg = {}
    
   mounted() {
     // TODO - use the latitude and longitude from the search city component
@@ -36,8 +44,11 @@ export default class WeatherForecast extends Vue {
   
 
   updateWeatherInfo(lat: number, lng: number) {
+    this.errorMsg = {}
     this.weatherService.getWeatherForecast(lat, lng).then((res) => {
-      console.log(res);
+      this.store.commit('setWeatherResult', res)
+    }).catch((err) => {
+      this.errorMsg = { ...err, ...{ error: true} };
     });
   }
 

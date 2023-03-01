@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export interface ForecastModel {
     latitude: number,
     longitude: number,
@@ -19,12 +20,13 @@ export async function getWeatherForecast(lat: number, lng: number): Promise<Fore
     // use axios to make the call
     //  https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true
 
-    
-
-    const apiPath = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current_weather=true`;
+    const apiPath = `https://api.open-meteo.com/v1/forecast?latitude=${lat}ds&longitude=${lng}&current_weather=true`;
 
     const response = await axios.get(apiPath);
+
     const posts: ForecastModel = response.data;
+
+    console.log(posts);
 
     return posts;
 }
