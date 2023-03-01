@@ -3,6 +3,7 @@
     <h3>Weather forecast for city</h3>
 
     TODO
+    {{ selectedPlace }}
     
   </div>
 </template>
