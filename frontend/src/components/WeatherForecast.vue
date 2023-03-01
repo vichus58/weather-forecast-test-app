@@ -7,7 +7,12 @@
       {{ errorMsg }}
     </div>
     <div v-else >
-      {{ weatherReport }}
+      <template v-for="data, index in weatherReport.current_weather" :key="index">
+        <div class="row">
+          <div class="col-md-2">{{ index }}: </div>
+          <div class="col-md-2">{{ data }}</div>
+        </div>
+      </template>
     </div>
     
   </div>
