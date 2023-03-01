@@ -4,11 +4,8 @@
     <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
-  <link
-    type="text/css"
-    rel="stylesheet"
-    href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"
-  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <link rel="stylesheet" href="@assets/css/index.css" >
 </template>
 
 

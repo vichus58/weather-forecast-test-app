@@ -31,6 +31,29 @@ export default class WeatherForecast extends Vue {
   store = useStore()
 
   errorMsg = {}
+
+  dataLabels = {
+    temperature: {
+      label: 'Temperature',
+      unit: 'C'
+    },
+    windspeed: {
+      label: 'Wind speed',
+      unit: 'm/s'
+    },
+    winddirection: {
+      label: 'Wind direction',
+      unit: 'C'
+    },
+    weathercode: {
+      label: 'Weather code',
+      unit: ''
+    },
+    time: {
+      label: 'Time',
+      unit: ''
+    }
+  }
    
   mounted() {
     // TODO - use the latitude and longitude from the search city component
