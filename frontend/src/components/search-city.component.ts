@@ -18,5 +18,10 @@ export default class SearchCity extends Vue {
     this.store.commit('setSelectedPlace', this.selectedPlace)
   }
 
+  handleMapClick(e: any) {
+    this.selectedPlace = { lat: e.latLng.lat(), lng: e.latLng.lng() };
+    this.store.commit('setSelectedPlace', this.selectedPlace)
+  }
+
 
 }

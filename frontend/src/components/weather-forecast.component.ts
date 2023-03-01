@@ -11,8 +11,8 @@ import { mapGetters, mapState, useStore } from 'vuex';
       weatherReport: 'getWeatherResult'
     }),
     ...mapState([
-    // map this.count to store.state.count
-    'selectedPlace'
+    'selectedPlace',
+    'loading'
     ])
   },
   watch: {
@@ -43,7 +43,7 @@ export default class WeatherForecast extends Vue {
     },
     winddirection: {
       label: 'Wind direction',
-      unit: 'C'
+      unit: ''
     },
     weathercode: {
       label: 'Weather code',
@@ -68,10 +68,15 @@ export default class WeatherForecast extends Vue {
 
   updateWeatherInfo(lat: number, lng: number) {
     this.errorMsg = {}
+    this.store.commit('setWeatherResult', {})
+    this.store.commit('setLoading', true)
     this.weatherService.getWeatherForecast(lat, lng).then((res) => {
       this.store.commit('setWeatherResult', res)
     }).catch((err) => {
+      console.log(err)
       this.errorMsg = { ...err, ...{ error: true} };
+    }).finally(() => {
+      this.store.commit('setLoading', false)
     });
   }
 

@@ -14,7 +14,8 @@ export default createStore({
       lat: '',
       lng: ''
     },
-    weatherForecastResult: < Result > { }
+    weatherForecastResult: < Result > { },
+    loading: false
   },
   getters: {
     getSelectedPlace(state) {
@@ -26,7 +27,10 @@ export default createStore({
         weatherResult.current_weather.time = weatherResult.current_weather.time.split('T').join(' ')
       }
       return weatherResult
-    }
+    },
+    getLoading(state) {
+      return state.loading
+    },
   },
   mutations: {
     setSelectedPlace(state, payload) {
@@ -34,7 +38,10 @@ export default createStore({
     },
     setWeatherResult(state, payload) {
       state.weatherForecastResult = payload
-    }
+    },
+    setLoading(state, payload) {
+      state.loading = payload
+    },
   },
   actions: {
   },

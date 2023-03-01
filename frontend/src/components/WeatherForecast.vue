@@ -4,8 +4,8 @@
 
     <!-- TODO -->
     <div class="container">
-      <div v-if="errorMsg.error">
-        {{ errorMsg }}
+      <div class="alert alert-danger" role="alert" v-if="errorMsg.error">
+        {{ errorMsg.errorI18NMessage }}
       </div>
       <div v-else >
         <template v-for="data, index in weatherReport.current_weather" :key="index">
@@ -21,7 +21,9 @@
           </div>
         </template>
       </div>
-      <div class="spinner-border" role="status">
+
+      <!-- not moving to component due to time issue -->
+      <div v-if="loading" class="spinner-border" role="status">
         <span class="sr-only">Loading...</span>
       </div>
     </div>
