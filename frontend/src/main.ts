@@ -10,6 +10,8 @@ setupAxiosInterceptors(() => {
     console.log('Unauthenticated');
 });
 
+import '@/assets/css/style.css'
+
 const app = createApp(App)
 
 const weatherService = new WeatherService();
